@@ -24,10 +24,8 @@ class NovaServiceMonolithApplicationTests {
                 .writeAggregatingDocument()
                 .writeModulesAsPlantUml(Documenter.DiagramOptions.defaults()
                         .withStyle(Documenter.DiagramOptions.DiagramStyle.UML))
-
                 .writeIndividualModulesAsPlantUml(Documenter.DiagramOptions.defaults()
                         .withStyle(Documenter.DiagramOptions.DiagramStyle.UML))
-
                 .writeModuleCanvases();
 
         Documenter.DiagramOptions.defaults()

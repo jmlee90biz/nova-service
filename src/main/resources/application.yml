@@ -1,5 +1,5 @@
 spring:
   application:
-    name: nova-modular-monolith
+    name: nova-service-monolith
   profiles:
     active: local

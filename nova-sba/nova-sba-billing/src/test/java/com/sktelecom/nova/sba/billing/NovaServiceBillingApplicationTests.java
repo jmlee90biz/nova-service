@@ -6,7 +6,7 @@ import org.springframework.modulith.core.ApplicationModules;
 import org.springframework.modulith.docs.Documenter;
 
 @SpringBootTest
-class NovaServiceCustomerApplicationTests {
+class NovaServiceBillingApplicationTests {
 
     @Test
     void contextLoads() {
@@ -23,13 +23,13 @@ class NovaServiceCustomerApplicationTests {
                 .writeDocumentation()
                 .writeAggregatingDocument()
                 .writeModulesAsPlantUml(Documenter.DiagramOptions.defaults()
-                        .withStyle(Documenter.DiagramOptions.DiagramStyle.C4))
+                        .withStyle(Documenter.DiagramOptions.DiagramStyle.UML))
                 .writeIndividualModulesAsPlantUml(Documenter.DiagramOptions.defaults()
-                        .withStyle(Documenter.DiagramOptions.DiagramStyle.C4))
+                        .withStyle(Documenter.DiagramOptions.DiagramStyle.UML))
                 .writeModuleCanvases();
 
         Documenter.DiagramOptions.defaults()
-                .withStyle(Documenter.DiagramOptions.DiagramStyle.C4);
+                .withStyle(Documenter.DiagramOptions.DiagramStyle.UML);
     }
 
 }

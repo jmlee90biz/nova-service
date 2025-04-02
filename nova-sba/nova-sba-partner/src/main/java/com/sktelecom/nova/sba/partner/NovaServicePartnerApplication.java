@@ -1,4 +1,4 @@
-package com.sktelecom.nova.sba.product;
+package com.sktelecom.nova.sba.partner;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,10 +14,10 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication(scanBasePackages = {
         "com.sktelecom.nova"
 })
-public class NovaServiceProductApplication {
+public class NovaServicePartnerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(NovaServiceProductApplication.class, args);
+        SpringApplication.run(NovaServicePartnerApplication.class, args);
     }
 
 }

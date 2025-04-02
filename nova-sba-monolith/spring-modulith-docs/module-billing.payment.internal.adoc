@@ -1,0 +1,13 @@
+[%autowidth.stretch, cols="h,a"]
+|===
+|Base package
+|`com.sktelecom.nova.billing.payment.internal`
+|Spring components
+|_Event listeners_
+
+* `c.s.n.b.p.i.PaymentEventListener`
+|Bean references
+|* `c.s.n.b.p.a.PaymentService` (in billing-payment-api)
+|Events listened to
+|* `c.s.n.b.i.e.InvoiceClosedEvent` (async) 
+|===

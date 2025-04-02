@@ -1,0 +1,62 @@
+@startuml
+set separator none
+
+top to bottom direction
+
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+  componentStyle uml1
+}
+
+hide stereotype
+
+skinparam component<<Modules.Modules.billinginvoiceapi>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+  shadowing false
+}
+skinparam component<<Modules.Modules.billinginvoiceevent>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+  shadowing false
+}
+skinparam component<<Modules.Modules.billinginvoiceinternal>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+  shadowing false
+}
+skinparam component<<Modules.Modules.billingusageevent>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+  shadowing false
+}
+skinparam component<<Modules.Modules.customersubscriptionevent>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+  shadowing false
+}
+skinparam rectangle<<Modules.Modules>> {
+  BorderColor #9a9a9a
+  FontColor #9a9a9a
+  shadowing false
+}
+
+component "==billing-usage-event\n<size:10>[Component: Module]</size>" <<Modules.Modules.billingusageevent>> as Modules.Modules.billingusageevent
+component "==billing-invoice-event\n<size:10>[Component: Module]</size>" <<Modules.Modules.billinginvoiceevent>> as Modules.Modules.billinginvoiceevent
+component "==billing-invoice-api\n<size:10>[Component: Module]</size>" <<Modules.Modules.billinginvoiceapi>> as Modules.Modules.billinginvoiceapi
+component "==billing-invoice-internal\n<size:10>[Component: Module]</size>" <<Modules.Modules.billinginvoiceinternal>> as Modules.Modules.billinginvoiceinternal
+component "==customer-subscription-event\n<size:10>[Component: Module]</size>" <<Modules.Modules.customersubscriptionevent>> as Modules.Modules.customersubscriptionevent
+Modules.Modules.billinginvoiceinternal .[#707070,thickness=2].> Modules.Modules.billinginvoiceevent : "<color:#707070>listens to"
+Modules.Modules.billinginvoiceinternal .[#707070,thickness=2].> Modules.Modules.billingusageevent : "<color:#707070>listens to"
+Modules.Modules.billinginvoiceinternal .[#707070,thickness=2].> Modules.Modules.customersubscriptionevent : "<color:#707070>listens to"
+Modules.Modules.billinginvoiceinternal .[#707070,thickness=2].> Modules.Modules.billinginvoiceapi : "<color:#707070>uses"
+Modules.Modules.billinginvoiceapi .[#707070,thickness=2].> Modules.Modules.customersubscriptionevent : "<color:#707070>depends on"
+@enduml

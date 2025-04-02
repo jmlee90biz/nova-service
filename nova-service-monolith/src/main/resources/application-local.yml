@@ -1,0 +1,67 @@
+spring:
+  docker:
+    compose:
+      skip:
+        in-tests: false
+
+  datasource:
+    username: postgres
+    password: postgres
+    url: jdbc:postgresql://localhost:5432/nova_modular_monolith
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 1024
+      minimum-idle: 512
+      idle-timeout: 30000
+      max-lifetime: 1800000
+      connection-timeout: 30000
+
+  jpa:
+#    properties:
+#      hibernate:
+#        jdbc.batch_size: 100  # 한 번에 INSERT할 최대 Batch 크기
+#        order_inserts: true   # INSERT 쿼리를 같은 엔티티끼리 그룹화
+#        order_updates: true   # UPDATE 쿼리를 같은 엔티티끼리 그룹화
+#        batch_versioned_data: true # 버전 필드를 포함한 엔티티도 배치 처리
+    hibernate:
+      ddl-auto: update
+    defer-datasource-initialization: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+  sql:
+    init:
+      mode: never
+
+  modulith:
+    detection-strategy: explicitly-annotated
+
+#    events:
+#      republish-outstanding-events-on-restart: false
+
+
+#
+#logging:
+#  level:
+#    org.springframework.modulith: DEBUG
+#    org.springframework.web: DEBUG
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+#server:
+
+server:
+  port: 8081
+  tomcat:
+    accept-count: 1000  # 대기 중인 요청 큐 크기 (기본값: 100)
+    max-connections: 50000  # 최대 동시 연결 개수 (기본값: 8192)
+    threads:
+      max: 1000   # 최대 스레드 개수 (기본값: 200)
+      min-spare: 50  # 최소 유휴 스레드 개수 (기본값: 10)
+
+
+springdoc:
+  api-docs:
+    groups:
+      enabled: true

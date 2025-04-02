@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: nova-modular-monolith
+  profiles:
+    active: local

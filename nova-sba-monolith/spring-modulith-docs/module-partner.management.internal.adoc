@@ -1,0 +1,7 @@
+[%autowidth.stretch, cols="h,a"]
+|===
+|Base package
+|`com.sktelecom.nova.partner.management.internal`
+|Bean references
+|* `c.s.n.p.m.a.PartnerManagementService` (in product-management-api)
+|===

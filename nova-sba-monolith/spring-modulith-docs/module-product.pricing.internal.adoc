@@ -1,0 +1,8 @@
+[%autowidth.stretch, cols="h,a"]
+|===
+|Base package
+|`com.sktelecom.nova.product.pricing.internal`
+|Bean references
+|* `c.s.n.p.p.a.ProductPricingService` (in product-pricing-api)
+* `c.s.n.p.c.a.ProductCatalogService` (in product-catalog-api)
+|===

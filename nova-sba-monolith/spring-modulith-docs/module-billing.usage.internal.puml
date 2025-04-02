@@ -1,0 +1,45 @@
+@startuml
+set separator none
+
+top to bottom direction
+
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+  componentStyle uml1
+}
+
+hide stereotype
+
+skinparam component<<Modules.Modules.billingusageapi>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+  shadowing false
+}
+skinparam component<<Modules.Modules.billingusageevent>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+  shadowing false
+}
+skinparam component<<Modules.Modules.billingusageinternal>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+  shadowing false
+}
+skinparam rectangle<<Modules.Modules>> {
+  BorderColor #9a9a9a
+  FontColor #9a9a9a
+  shadowing false
+}
+
+component "==billing-usage-api\n<size:10>[Component: Module]</size>" <<Modules.Modules.billingusageapi>> as Modules.Modules.billingusageapi
+component "==billing-usage-event\n<size:10>[Component: Module]</size>" <<Modules.Modules.billingusageevent>> as Modules.Modules.billingusageevent
+component "==billing-usage-internal\n<size:10>[Component: Module]</size>" <<Modules.Modules.billingusageinternal>> as Modules.Modules.billingusageinternal
+Modules.Modules.billingusageinternal .[#707070,thickness=2].> Modules.Modules.billingusageevent : "<color:#707070>depends on"
+Modules.Modules.billingusageinternal .[#707070,thickness=2].> Modules.Modules.billingusageapi : "<color:#707070>uses"
+@enduml

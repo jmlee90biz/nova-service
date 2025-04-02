@@ -1,0 +1,19 @@
+[%autowidth.stretch, cols="h,a"]
+|===
+|Base package
+|`com.sktelecom.nova.billing.invoice.internal`
+|Spring components
+|_Services_
+
+* `c.s.n.b.i.i.InvoiceServiceImpl`
+
+_Event listeners_
+
+* `c.s.n.b.i.i.InvoiceEventListener`
+|Bean references
+|* `c.s.n.b.i.a.InvoiceService` (in billing-invoice-api)
+|Events listened to
+|* `c.s.n.b.i.e.InvoiceClosedEvent` (async) 
+* `c.s.n.c.s.e.SubscriptionActivatedEvent` (async) 
+* `c.s.n.b.u.e.UsageRecordCreatedEvent` (async) 
+|===

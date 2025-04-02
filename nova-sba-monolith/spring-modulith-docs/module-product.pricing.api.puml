@@ -1,0 +1,37 @@
+@startuml
+set separator none
+
+top to bottom direction
+
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+  componentStyle uml1
+}
+
+hide stereotype
+
+skinparam component<<Modules.Modules.productcatalogapi>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+  shadowing false
+}
+skinparam component<<Modules.Modules.productpricingapi>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+  shadowing false
+}
+skinparam rectangle<<Modules.Modules>> {
+  BorderColor #9a9a9a
+  FontColor #9a9a9a
+  shadowing false
+}
+
+component "==product-catalog-api\n<size:10>[Component: Module]</size>" <<Modules.Modules.productcatalogapi>> as Modules.Modules.productcatalogapi
+component "==product-pricing-api\n<size:10>[Component: Module]</size>" <<Modules.Modules.productpricingapi>> as Modules.Modules.productpricingapi
+Modules.Modules.productpricingapi .[#707070,thickness=2].> Modules.Modules.productcatalogapi : "<color:#707070>depends on"
+@enduml

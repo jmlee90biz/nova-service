@@ -1,0 +1,12 @@
+[%autowidth.stretch, cols="h,a"]
+|===
+|Base package
+|`com.sktelecom.nova.common.notification.internal`
+|Spring components
+|_Event listeners_
+
+* `c.s.n.c.n.i.NotificationEventListener`
+|Events listened to
+|* `c.s.n.c.p.e.CustomerRegisteredEvent` (async) 
+* `c.s.n.p.c.e.ProductRegisteredEvent` (async) 
+|===

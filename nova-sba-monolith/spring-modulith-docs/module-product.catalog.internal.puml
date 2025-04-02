@@ -1,0 +1,45 @@
+@startuml
+set separator none
+
+top to bottom direction
+
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+  componentStyle uml1
+}
+
+hide stereotype
+
+skinparam component<<Modules.Modules.productcatalogapi>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+  shadowing false
+}
+skinparam component<<Modules.Modules.productcatalogevent>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+  shadowing false
+}
+skinparam component<<Modules.Modules.productcataloginternal>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+  shadowing false
+}
+skinparam rectangle<<Modules.Modules>> {
+  BorderColor #9a9a9a
+  FontColor #9a9a9a
+  shadowing false
+}
+
+component "==product-catalog-internal\n<size:10>[Component: Module]</size>" <<Modules.Modules.productcataloginternal>> as Modules.Modules.productcataloginternal
+component "==product-catalog-api\n<size:10>[Component: Module]</size>" <<Modules.Modules.productcatalogapi>> as Modules.Modules.productcatalogapi
+component "==product-catalog-event\n<size:10>[Component: Module]</size>" <<Modules.Modules.productcatalogevent>> as Modules.Modules.productcatalogevent
+Modules.Modules.productcataloginternal .[#707070,thickness=2].> Modules.Modules.productcatalogevent : "<color:#707070>depends on"
+Modules.Modules.productcataloginternal .[#707070,thickness=2].> Modules.Modules.productcatalogapi : "<color:#707070>uses"
+@enduml

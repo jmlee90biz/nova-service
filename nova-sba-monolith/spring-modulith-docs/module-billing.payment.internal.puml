@@ -1,0 +1,53 @@
+@startuml
+set separator none
+
+top to bottom direction
+
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+  componentStyle uml1
+}
+
+hide stereotype
+
+skinparam component<<Modules.Modules.billinginvoiceevent>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+  shadowing false
+}
+skinparam component<<Modules.Modules.billingpaymentapi>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+  shadowing false
+}
+skinparam component<<Modules.Modules.billingpaymentevent>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+  shadowing false
+}
+skinparam component<<Modules.Modules.billingpaymentinternal>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+  shadowing false
+}
+skinparam rectangle<<Modules.Modules>> {
+  BorderColor #9a9a9a
+  FontColor #9a9a9a
+  shadowing false
+}
+
+component "==billing-payment-event\n<size:10>[Component: Module]</size>" <<Modules.Modules.billingpaymentevent>> as Modules.Modules.billingpaymentevent
+component "==billing-invoice-event\n<size:10>[Component: Module]</size>" <<Modules.Modules.billinginvoiceevent>> as Modules.Modules.billinginvoiceevent
+component "==billing-payment-api\n<size:10>[Component: Module]</size>" <<Modules.Modules.billingpaymentapi>> as Modules.Modules.billingpaymentapi
+component "==billing-payment-internal\n<size:10>[Component: Module]</size>" <<Modules.Modules.billingpaymentinternal>> as Modules.Modules.billingpaymentinternal
+Modules.Modules.billingpaymentinternal .[#707070,thickness=2].> Modules.Modules.billinginvoiceevent : "<color:#707070>listens to"
+Modules.Modules.billingpaymentinternal .[#707070,thickness=2].> Modules.Modules.billingpaymentevent : "<color:#707070>depends on"
+Modules.Modules.billingpaymentinternal .[#707070,thickness=2].> Modules.Modules.billingpaymentapi : "<color:#707070>uses"
+@enduml

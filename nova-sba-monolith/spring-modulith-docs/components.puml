@@ -1,0 +1,130 @@
+@startuml
+set separator none
+
+' Use top-down layout to reduce width
+left to right direction
+
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 100
+  maxMessageSize 80
+  componentStyle uml1
+  nodesep 0.3
+  ranksep 2.0
+}
+
+hide stereotype
+
+skinparam rectangle<<Modules.Modules>> {
+  BorderColor #9a9a9a
+  FontColor #9a9a9a
+  shadowing false
+}
+
+' Add "together" to keep grouped packages vertically aligned
+together {
+  ' === Group: billing-invoice ===
+  package "billing-invoice" <<Modules.Modules>> {
+    component "==billing-invoice-api\n<size:10>[Component: Module]</size>" <<Modules.Modules.billinginvoiceapi>> as Modules.Modules.billinginvoiceapi
+    component "==billing-invoice-event\n<size:10>[Component: Module]</size>" <<Modules.Modules.billinginvoiceevent>> as Modules.Modules.billinginvoiceevent
+    component "==billing-invoice-internal\n<size:10>[Component: Module]</size>" <<Modules.Modules.billinginvoiceinternal>> as Modules.Modules.billinginvoiceinternal
+  }
+
+  ' === Group: billing-payment ===
+  package "billing-payment" <<Modules.Modules>> {
+    component "==billing-payment-api\n<size:10>[Component: Module]</size>" <<Modules.Modules.billingpaymentapi>> as Modules.Modules.billingpaymentapi
+    component "==billing-payment-event\n<size:10>[Component: Module]</size>" <<Modules.Modules.billingpaymentevent>> as Modules.Modules.billingpaymentevent
+    component "==billing-payment-internal\n<size:10>[Component: Module]</size>" <<Modules.Modules.billingpaymentinternal>> as Modules.Modules.billingpaymentinternal
+  }
+
+  ' === Group: billing-usage ===
+  package "billing-usage" <<Modules.Modules>> {
+    component "==billing-usage-api\n<size:10>[Component: Module]</size>" <<Modules.Modules.billingusageapi>> as Modules.Modules.billingusageapi
+    component "==billing-usage-event\n<size:10>[Component: Module]</size>" <<Modules.Modules.billingusageevent>> as Modules.Modules.billingusageevent
+    component "==billing-usage-internal\n<size:10>[Component: Module]</size>" <<Modules.Modules.billingusageinternal>> as Modules.Modules.billingusageinternal
+  }
+
+  ' === Group: customer-profile ===
+  package "customer-profile" <<Modules.Modules>> {
+    component "==customer-profile-api\n<size:10>[Component: Module]</size>" <<Modules.Modules.customerprofileapi>> as Modules.Modules.customerprofileapi
+    component "==customer-profile-event\n<size:10>[Component: Module]</size>" <<Modules.Modules.customerprofileevent>> as Modules.Modules.customerprofileevent
+    component "==customer-profile-internal\n<size:10>[Component: Module]</size>" <<Modules.Modules.customerprofileinternal>> as Modules.Modules.customerprofileinternal
+  }
+
+  ' === Group: customer-subscription ===
+  package "customer-subscription" <<Modules.Modules>> {
+    component "==customer-subscription-api\n<size:10>[Component: Module]</size>" <<Modules.Modules.customersubscriptionapi>> as Modules.Modules.customersubscriptionapi
+    component "==customer-subscription-event\n<size:10>[Component: Module]</size>" <<Modules.Modules.customersubscriptionevent>> as Modules.Modules.customersubscriptionevent
+    component "==customer-subscription-internal\n<size:10>[Component: Module]</size>" <<Modules.Modules.customersubscriptioninternal>> as Modules.Modules.customersubscriptioninternal
+  }
+
+  ' === Group: partner-management ===
+  package "partner-management" <<Modules.Modules>> {
+    component "==partner-management-internal\n<size:10>[Component: Module]</size>" <<Modules.Modules.partnermanagementinternal>> as Modules.Modules.partnermanagementinternal
+  }
+
+  ' === Group: partner-settlement ===
+  package "partner-settlement" <<Modules.Modules>> {
+    component "==partner-settlement-api\n<size:10>[Component: Module]</size>" <<Modules.Modules.partnersettlementapi>> as Modules.Modules.partnersettlementapi
+    component "==partner-settlement-event\n<size:10>[Component: Module]</size>" <<Modules.Modules.partnersettlementevent>> as Modules.Modules.partnersettlementevent
+    component "==partner-settlement-internal\n<size:10>[Component: Module]</size>" <<Modules.Modules.partnersettlementinternal>> as Modules.Modules.partnersettlementinternal
+  }
+
+  ' === Group: product-catalog ===
+  package "product-catalog" <<Modules.Modules>> {
+    component "==product-catalog-api\n<size:10>[Component: Module]</size>" <<Modules.Modules.productcatalogapi>> as Modules.Modules.productcatalogapi
+    component "==product-catalog-event\n<size:10>[Component: Module]</size>" <<Modules.Modules.productcatalogevent>> as Modules.Modules.productcatalogevent
+    component "==product-catalog-internal\n<size:10>[Component: Module]</size>" <<Modules.Modules.productcataloginternal>> as Modules.Modules.productcataloginternal
+  }
+
+  ' === Group: product-management ===
+  package "product-management" <<Modules.Modules>> {
+    component "==product-management-api\n<size:10>[Component: Module]</size>" <<Modules.Modules.productmanagementapi>> as Modules.Modules.productmanagementapi
+  }
+
+  ' === Group: product-pricing ===
+  package "product-pricing" <<Modules.Modules>> {
+    component "==product-pricing-api\n<size:10>[Component: Module]</size>" <<Modules.Modules.productpricingapi>> as Modules.Modules.productpricingapi
+    component "==product-pricing-internal\n<size:10>[Component: Module]</size>" <<Modules.Modules.productpricinginternal>> as Modules.Modules.productpricinginternal
+  }
+
+  ' === Group: common ===
+  package "common" <<Modules.Modules>> {
+    component "==common-notification\n<size:10>[Component: Module]</size>" <<Modules.Modules.commonnotification>> as Modules.Modules.commonnotification
+  }
+}
+
+' === Dependencies (with colors) ===
+' green: listens to | blue: depends on | red: uses
+Modules.Modules.billingpaymentinternal .[#00aa00,thickness=2].> Modules.Modules.billinginvoiceevent : "<color:#00aa00>listens to"
+Modules.Modules.billingpaymentinternal .[#0000cc,thickness=2].> Modules.Modules.billingpaymentevent : "<color:#0000cc>depends on"
+Modules.Modules.billingpaymentinternal .[#cc0000,thickness=2].> Modules.Modules.billingpaymentapi : "<color:#cc0000>uses"
+Modules.Modules.partnermanagementinternal .[#cc0000,thickness=2].> Modules.Modules.productmanagementapi : "<color:#cc0000>uses"
+Modules.Modules.partnersettlementinternal .[#00aa00,thickness=2].> Modules.Modules.billingpaymentevent : "<color:#00aa00>listens to"
+Modules.Modules.partnersettlementinternal .[#00aa00,thickness=2].> Modules.Modules.partnersettlementevent : "<color:#00aa00>listens to"
+Modules.Modules.partnersettlementinternal .[#0000cc,thickness=2].> Modules.Modules.partnersettlementapi : "<color:#0000cc>depends on"
+Modules.Modules.partnersettlementinternal .[#cc0000,thickness=2].> Modules.Modules.productmanagementapi : "<color:#cc0000>uses"
+Modules.Modules.billinginvoiceinternal .[#00aa00,thickness=2].> Modules.Modules.billinginvoiceevent : "<color:#00aa00>listens to"
+Modules.Modules.billinginvoiceinternal .[#00aa00,thickness=2].> Modules.Modules.billingusageevent : "<color:#00aa00>listens to"
+Modules.Modules.billinginvoiceinternal .[#00aa00,thickness=2].> Modules.Modules.customersubscriptionevent : "<color:#00aa00>listens to"
+Modules.Modules.billinginvoiceinternal .[#cc0000,thickness=2].> Modules.Modules.billinginvoiceapi : "<color:#cc0000>uses"
+Modules.Modules.billinginvoiceapi .[#0000cc,thickness=2].> Modules.Modules.customersubscriptionevent : "<color:#0000cc>depends on"
+Modules.Modules.customersubscriptionapi .[#0000cc,thickness=2].> Modules.Modules.customerprofileapi : "<color:#0000cc>depends on"
+Modules.Modules.customersubscriptionapi .[#0000cc,thickness=2].> Modules.Modules.productpricingapi : "<color:#0000cc>depends on"
+Modules.Modules.productpricinginternal .[#cc0000,thickness=2].> Modules.Modules.productpricingapi : "<color:#cc0000>uses"
+Modules.Modules.productpricinginternal .[#cc0000,thickness=2].> Modules.Modules.productcatalogapi : "<color:#cc0000>uses"
+Modules.Modules.productcataloginternal .[#0000cc,thickness=2].> Modules.Modules.productcatalogevent : "<color:#0000cc>depends on"
+Modules.Modules.productcataloginternal .[#cc0000,thickness=2].> Modules.Modules.productcatalogapi : "<color:#cc0000>uses"
+Modules.Modules.customerprofileinternal .[#0000cc,thickness=2].> Modules.Modules.customerprofileevent : "<color:#0000cc>depends on"
+Modules.Modules.customerprofileinternal .[#cc0000,thickness=2].> Modules.Modules.customerprofileapi : "<color:#cc0000>uses"
+Modules.Modules.commonnotification .[#00aa00,thickness=2].> Modules.Modules.productcatalogevent : "<color:#00aa00>listens to"
+Modules.Modules.commonnotification .[#00aa00,thickness=2].> Modules.Modules.customerprofileevent : "<color:#00aa00>listens to"
+Modules.Modules.productpricingapi .[#0000cc,thickness=2].> Modules.Modules.productcatalogapi : "<color:#0000cc>depends on"
+Modules.Modules.customersubscriptioninternal .[#0000cc,thickness=2].> Modules.Modules.customersubscriptionevent : "<color:#0000cc>depends on"
+Modules.Modules.customersubscriptioninternal .[#cc0000,thickness=2].> Modules.Modules.customersubscriptionapi : "<color:#cc0000>uses"
+Modules.Modules.customersubscriptioninternal .[#cc0000,thickness=2].> Modules.Modules.customerprofileapi : "<color:#cc0000>uses"
+Modules.Modules.customersubscriptioninternal .[#cc0000,thickness=2].> Modules.Modules.productpricingapi : "<color:#cc0000>uses"
+Modules.Modules.billingusageinternal .[#0000cc,thickness=2].> Modules.Modules.billingusageevent : "<color:#0000cc>depends on"
+Modules.Modules.billingusageinternal .[#cc0000,thickness=2].> Modules.Modules.billingusageapi : "<color:#cc0000>uses"
+@enduml

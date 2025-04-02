@@ -1,0 +1,14 @@
+[%autowidth.stretch, cols="h,a"]
+|===
+|Base package
+|`com.sktelecom.nova.partner.settlement.internal`
+|Spring components
+|_Event listeners_
+
+* `c.s.n.p.s.i.PartnerSettlementEventListener`
+|Bean references
+|* `c.s.n.p.m.a.PartnerManagementService` (in product-management-api)
+|Events listened to
+|* `c.s.n.p.s.e.PartnerSettlementCompletedEvent` (async) 
+* `c.s.n.b.p.e.PaymentCompletedEvent` (async) 
+|===

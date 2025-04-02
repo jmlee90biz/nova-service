@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: nova-sba-product
+  profiles:
+    active: local

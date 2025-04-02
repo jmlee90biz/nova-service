@@ -1,0 +1,107 @@
+== Modules
+plantuml::components.puml[,,format=svg]
+
+== product-catalog-api
+plantuml::module-product.catalog.api.puml[,,format=svg]
+include::module-product.catalog.api.adoc[]
+
+== product-pricing-api
+plantuml::module-product.pricing.api.puml[,,format=svg]
+include::module-product.pricing.api.adoc[]
+
+== customer-profile-api
+plantuml::module-customer.profile.api.puml[,,format=svg]
+include::module-customer.profile.api.adoc[]
+
+== customer-subscription-event
+plantuml::module-customer.subscription.event.puml[,,format=svg]
+include::module-customer.subscription.event.adoc[]
+
+== product-catalog-event
+plantuml::module-product.catalog.event.puml[,,format=svg]
+include::module-product.catalog.event.adoc[]
+
+== partner-settlement-api
+plantuml::module-partner.settlement.api.puml[,,format=svg]
+include::module-partner.settlement.api.adoc[]
+
+== partner-settlement-event
+plantuml::module-partner.settlement.event.puml[,,format=svg]
+include::module-partner.settlement.event.adoc[]
+
+== billing-payment-event
+plantuml::module-billing.payment.event.puml[,,format=svg]
+include::module-billing.payment.event.adoc[]
+
+== product-management-api
+plantuml::module-partner.management.api.puml[,,format=svg]
+include::module-partner.management.api.adoc[]
+
+== customer-subscription-api
+plantuml::module-customer.subscription.api.puml[,,format=svg]
+include::module-customer.subscription.api.adoc[]
+
+== customer-profile-event
+plantuml::module-customer.profile.event.puml[,,format=svg]
+include::module-customer.profile.event.adoc[]
+
+== billing-usage-api
+plantuml::module-billing.usage.api.puml[,,format=svg]
+include::module-billing.usage.api.adoc[]
+
+== billing-usage-event
+plantuml::module-billing.usage.event.puml[,,format=svg]
+include::module-billing.usage.event.adoc[]
+
+== billing-invoice-event
+plantuml::module-billing.invoice.event.puml[,,format=svg]
+include::module-billing.invoice.event.adoc[]
+
+== billing-payment-api
+plantuml::module-billing.payment.api.puml[,,format=svg]
+include::module-billing.payment.api.adoc[]
+
+== billing-invoice-api
+plantuml::module-billing.invoice.api.puml[,,format=svg]
+include::module-billing.invoice.api.adoc[]
+
+== product-pricing-internal
+plantuml::module-product.pricing.internal.puml[,,format=svg]
+include::module-product.pricing.internal.adoc[]
+
+== product-catalog-internal
+plantuml::module-product.catalog.internal.puml[,,format=svg]
+include::module-product.catalog.internal.adoc[]
+
+== partner-settlement-internal
+plantuml::module-partner.settlement.internal.puml[,,format=svg]
+include::module-partner.settlement.internal.adoc[]
+
+== partner-management-internal
+plantuml::module-partner.management.internal.puml[,,format=svg]
+include::module-partner.management.internal.adoc[]
+
+== customer-subscription-internal
+plantuml::module-customer.subscription.internal.puml[,,format=svg]
+include::module-customer.subscription.internal.adoc[]
+
+== customer-profile-internal
+plantuml::module-customer.profile.internal.puml[,,format=svg]
+include::module-customer.profile.internal.adoc[]
+
+== common-notification
+plantuml::module-common.notification.internal.puml[,,format=svg]
+include::module-common.notification.internal.adoc[]
+
+== billing-usage-internal
+plantuml::module-billing.usage.internal.puml[,,format=svg]
+include::module-billing.usage.internal.adoc[]
+
+== billing-payment-internal
+plantuml::module-billing.payment.internal.puml[,,format=svg]
+include::module-billing.payment.internal.adoc[]
+
+== billing-invoice-internal
+plantuml::module-billing.invoice.internal.puml[,,format=svg]
+include::module-billing.invoice.internal.adoc[]
+

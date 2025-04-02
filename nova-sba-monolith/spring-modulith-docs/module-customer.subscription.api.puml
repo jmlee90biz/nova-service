@@ -1,0 +1,45 @@
+@startuml
+set separator none
+
+top to bottom direction
+
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+  componentStyle uml1
+}
+
+hide stereotype
+
+skinparam component<<Modules.Modules.customerprofileapi>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+  shadowing false
+}
+skinparam component<<Modules.Modules.customersubscriptionapi>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+  shadowing false
+}
+skinparam component<<Modules.Modules.productpricingapi>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+  shadowing false
+}
+skinparam rectangle<<Modules.Modules>> {
+  BorderColor #9a9a9a
+  FontColor #9a9a9a
+  shadowing false
+}
+
+component "==customer-subscription-api\n<size:10>[Component: Module]</size>" <<Modules.Modules.customersubscriptionapi>> as Modules.Modules.customersubscriptionapi
+component "==product-pricing-api\n<size:10>[Component: Module]</size>" <<Modules.Modules.productpricingapi>> as Modules.Modules.productpricingapi
+component "==customer-profile-api\n<size:10>[Component: Module]</size>" <<Modules.Modules.customerprofileapi>> as Modules.Modules.customerprofileapi
+Modules.Modules.customersubscriptionapi .[#707070,thickness=2].> Modules.Modules.customerprofileapi : "<color:#707070>depends on"
+Modules.Modules.customersubscriptionapi .[#707070,thickness=2].> Modules.Modules.productpricingapi : "<color:#707070>depends on"
+@enduml

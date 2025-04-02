@@ -1,0 +1,11 @@
+[%autowidth.stretch, cols="h,a"]
+|===
+|Base package
+|`com.sktelecom.nova.customer.subscription.internal`
+|Spring components
+|* `c.s.n.c.s.i.SubscriptionEventListener`
+|Bean references
+|* `c.s.n.c.s.a.SubscriptionService` (in customer-subscription-api)
+* `c.s.n.c.p.a.CustomerProfileService` (in customer-profile-api)
+* `c.s.n.p.p.a.ProductPricingService` (in product-pricing-api)
+|===

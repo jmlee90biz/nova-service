@@ -1,0 +1,17 @@
+[%autowidth.stretch, cols="h,a"]
+|===
+|Base package
+|`com.sktelecom.nova.product.catalog.internal`
+|Spring components
+|_Services_
+
+* `c.s.n.p.c.i.ProductCatalogServiceImpl`
+
+_Others_
+
+* `c.s.n.p.c.i.EventPublisherWrapper`
+|Bean references
+|* `c.s.n.p.c.a.ProductCatalogService` (in product-catalog-api)
+|Aggregate roots
+|* `c.s.n.p.c.i.Product`
+|===

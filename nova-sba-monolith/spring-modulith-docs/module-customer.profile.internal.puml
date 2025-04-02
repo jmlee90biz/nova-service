@@ -1,0 +1,45 @@
+@startuml
+set separator none
+
+top to bottom direction
+
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+  componentStyle uml1
+}
+
+hide stereotype
+
+skinparam component<<Modules.Modules.customerprofileapi>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+  shadowing false
+}
+skinparam component<<Modules.Modules.customerprofileevent>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+  shadowing false
+}
+skinparam component<<Modules.Modules.customerprofileinternal>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+  shadowing false
+}
+skinparam rectangle<<Modules.Modules>> {
+  BorderColor #9a9a9a
+  FontColor #9a9a9a
+  shadowing false
+}
+
+component "==customer-profile-event\n<size:10>[Component: Module]</size>" <<Modules.Modules.customerprofileevent>> as Modules.Modules.customerprofileevent
+component "==customer-profile-internal\n<size:10>[Component: Module]</size>" <<Modules.Modules.customerprofileinternal>> as Modules.Modules.customerprofileinternal
+component "==customer-profile-api\n<size:10>[Component: Module]</size>" <<Modules.Modules.customerprofileapi>> as Modules.Modules.customerprofileapi
+Modules.Modules.customerprofileinternal .[#707070,thickness=2].> Modules.Modules.customerprofileevent : "<color:#707070>depends on"
+Modules.Modules.customerprofileinternal .[#707070,thickness=2].> Modules.Modules.customerprofileapi : "<color:#707070>uses"
+@enduml

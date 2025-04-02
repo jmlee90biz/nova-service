@@ -1,0 +1,61 @@
+@startuml
+set separator none
+
+top to bottom direction
+
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+  componentStyle uml1
+}
+
+hide stereotype
+
+skinparam component<<Modules.Modules.billingpaymentevent>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+  shadowing false
+}
+skinparam component<<Modules.Modules.partnersettlementapi>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+  shadowing false
+}
+skinparam component<<Modules.Modules.partnersettlementevent>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+  shadowing false
+}
+skinparam component<<Modules.Modules.partnersettlementinternal>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+  shadowing false
+}
+skinparam component<<Modules.Modules.productmanagementapi>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+  shadowing false
+}
+skinparam rectangle<<Modules.Modules>> {
+  BorderColor #9a9a9a
+  FontColor #9a9a9a
+  shadowing false
+}
+
+component "==billing-payment-event\n<size:10>[Component: Module]</size>" <<Modules.Modules.billingpaymentevent>> as Modules.Modules.billingpaymentevent
+component "==product-management-api\n<size:10>[Component: Module]</size>" <<Modules.Modules.productmanagementapi>> as Modules.Modules.productmanagementapi
+component "==partner-settlement-internal\n<size:10>[Component: Module]</size>" <<Modules.Modules.partnersettlementinternal>> as Modules.Modules.partnersettlementinternal
+component "==partner-settlement-api\n<size:10>[Component: Module]</size>" <<Modules.Modules.partnersettlementapi>> as Modules.Modules.partnersettlementapi
+component "==partner-settlement-event\n<size:10>[Component: Module]</size>" <<Modules.Modules.partnersettlementevent>> as Modules.Modules.partnersettlementevent
+Modules.Modules.partnersettlementinternal .[#707070,thickness=2].> Modules.Modules.billingpaymentevent : "<color:#707070>listens to"
+Modules.Modules.partnersettlementinternal .[#707070,thickness=2].> Modules.Modules.partnersettlementevent : "<color:#707070>listens to"
+Modules.Modules.partnersettlementinternal .[#707070,thickness=2].> Modules.Modules.partnersettlementapi : "<color:#707070>depends on"
+Modules.Modules.partnersettlementinternal .[#707070,thickness=2].> Modules.Modules.productmanagementapi : "<color:#707070>uses"
+@enduml

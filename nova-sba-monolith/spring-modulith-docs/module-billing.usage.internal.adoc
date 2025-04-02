@@ -1,0 +1,7 @@
+[%autowidth.stretch, cols="h,a"]
+|===
+|Base package
+|`com.sktelecom.nova.billing.usage.internal`
+|Bean references
+|* `c.s.n.b.u.a.UsageService` (in billing-usage-api)
+|===

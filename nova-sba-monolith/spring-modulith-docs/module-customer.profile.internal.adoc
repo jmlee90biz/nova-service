@@ -1,0 +1,9 @@
+[%autowidth.stretch, cols="h,a"]
+|===
+|Base package
+|`com.sktelecom.nova.customer.profile.internal`
+|Spring components
+|* `c.s.n.c.p.i.CustomerEventListener`
+|Bean references
+|* `c.s.n.c.p.a.CustomerProfileService` (in customer-profile-api)
+|===

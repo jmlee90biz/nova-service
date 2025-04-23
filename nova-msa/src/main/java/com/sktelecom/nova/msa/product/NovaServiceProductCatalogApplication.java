@@ -1,4 +1,4 @@
-package com.sktelecom.nova.service.monolith;
+package com.sktelecom.nova.msa.product;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,11 +14,10 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication(scanBasePackages = {
         "com.sktelecom.nova"
 })
-public class NovaServiceMonolithApplication {
+public class NovaServiceProductCatalogApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(NovaServiceMonolithApplication.class, args);
+        SpringApplication.run(NovaServiceProductCatalogApplication.class, args);
     }
-
 
 }

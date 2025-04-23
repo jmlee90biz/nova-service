@@ -1,17 +1,12 @@
-package com.sktelecom.nova.service.monolith;
+package com.sktelecom.nova.msa.product;
 
-import com.sktelecom.nova.customer.subscription.api.SubscriptionActivateRequest;
-import com.sktelecom.nova.customer.subscription.api.SubscriptionService;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.modulith.core.ApplicationModules;
 import org.springframework.modulith.docs.Documenter;
 
 @SpringBootTest
-class NovaServiceMonolithApplicationTests {
-//    @Autowired
-//    SubscriptionService subscriptionService;
+class NovaServiceProductCatalogApplicationTests {
 
     @Test
     void contextLoads() {
@@ -36,12 +31,6 @@ class NovaServiceMonolithApplicationTests {
         Documenter.DiagramOptions.defaults()
                 .withStyle(Documenter.DiagramOptions.DiagramStyle.UML);
     }
-
-//    @Test
-//    void success_subscription() {
-//        subscriptionService.activateSubscription(SubscriptionActivateRequest)
-//    }
-
 
 }
 

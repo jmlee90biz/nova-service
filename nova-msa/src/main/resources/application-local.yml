@@ -27,7 +27,7 @@ spring:
       ddl-auto: update
     defer-datasource-initialization: true
     database-platform: org.hibernate.dialect.PostgreSQLDialect
-#    show-sql: true
+    show-sql: true
   sql:
     init:
       mode: never
@@ -52,7 +52,7 @@ management:
 #server:
 
 server:
-  port: 9000
+  port: 20000
   tomcat:
     accept-count: 1000  # 대기 중인 요청 큐 크기 (기본값: 100)
     max-connections: 50000  # 최대 동시 연결 개수 (기본값: 8192)
@@ -65,3 +65,7 @@ springdoc:
   api-docs:
     groups:
       enabled: true
+
+product:
+  catalog:
+    base-url: http://localhost:20000
